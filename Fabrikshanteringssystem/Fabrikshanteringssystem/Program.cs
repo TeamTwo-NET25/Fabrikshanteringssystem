@@ -6,16 +6,17 @@ class Program
     static List<string> inventory = new List<string>();
     static void Main(string[] args)
     {
-        Console.Clear();
-        Console.WriteLine("Välkommen till Fabrikshanteringssystemet!");
+        
         while (true)
         {
+            Console.Clear();
+            Console.WriteLine("Välkommen till Fabrikshanteringssystemet!");
             Console.WriteLine("\nVälj en åtgärd:");
             Console.WriteLine("1. Lägg till produkt");
             Console.WriteLine("2. Ta bort produkt");
             Console.WriteLine("3. Visa inventarier");
-            Console.WriteLine("5. Sök produkt");
-            Console.WriteLine("4. Avsluta");
+            Console.WriteLine("4. Sök produkt");
+            Console.WriteLine("5. Avsluta");
             string val = Console.ReadLine();
             switch (val)
             {
@@ -23,13 +24,14 @@ class Program
                     LäggTillProdukt();
                     break;
                 case "2":
-                    VisaInventarie();
-                    break;
-                case "3":
                     TaBortProdukt();
                     break;
+                case "3":
+                    VisaInventarie();
+                    break;
                 case "4":
-                    return;
+                    SökProdukt();
+                    break; 
                 case "5":
                     return;
                 default:
@@ -48,8 +50,10 @@ class Program
             Console.ReadKey(true);
             return;
         }
-        inventory.Add(input.Substring(0).ToUpper().Substring(1));
-        
+        inventory.Add(input);
+        Console.WriteLine("Produkten tillagd!");
+        Console.ReadKey(true);
+
     }
     static void VisaInventarie(List<string> products = null!)
     {
@@ -69,10 +73,10 @@ class Program
                 Console.WriteLine($"{i + 1}. {products[i]}");
             }
         }
-
+        Console.ReadKey(true);
     }
 
-    static IEnumerable<string> SökProdukt()
+    static void SökProdukt()
     {
         string search = "";
         while (true)
@@ -86,6 +90,7 @@ class Program
         }
         List<string> results = inventory.FindAll(p => p.Contains(search));
         VisaInventarie(results);
+        
     }
     static void TaBortProdukt()
     {
