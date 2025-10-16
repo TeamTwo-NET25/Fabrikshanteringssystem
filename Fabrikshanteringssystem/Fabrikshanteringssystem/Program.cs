@@ -82,13 +82,13 @@ class Program
         while (true)
         {
             Console.Write("Ange sökkriterier: ");
-            search = Console.ReadLine()!;
+            search = Console.ReadLine().ToLower()!;
             if (!string.IsNullOrWhiteSpace(search))
             {
                 break;
             }
         }
-        List<string> results = inventory.FindAll(p => p.Contains(search));
+        List<string> results = inventory.FindAll(p => p.ToLower().Contains(search));
         VisaInventarie(results);
         
     }
