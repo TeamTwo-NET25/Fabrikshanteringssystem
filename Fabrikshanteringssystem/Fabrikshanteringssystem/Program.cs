@@ -115,4 +115,9 @@ class Program
         Console.ReadKey(true);
 
     }
+
+    static void Tjena()
+    {
+        // HEj
+    }
 }
