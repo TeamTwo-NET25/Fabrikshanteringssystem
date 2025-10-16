@@ -33,8 +33,24 @@ class Program
     {
         // TODO: Implementera metod för att lägga till produkt
     }
-    static void VisaInventarie()
+    static void VisaInventarie(List<string> products = null!)
     {
         // TODO: Implementera metod för att visa inventarie
+    }
+
+    static IEnumerable<string> SökProdukt()
+    {
+        string search = "";
+        while (true)
+        {
+            Console.Write("Ange sökkriterier: ");
+            search = Console.ReadLine()!;
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                break;
+            }
+        }
+        List<string> results = inventory.FindAll(p => p.Contains(search));
+        VisaInventarie(results);
     }
 }
