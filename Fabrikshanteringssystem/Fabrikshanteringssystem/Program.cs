@@ -69,4 +69,9 @@ class Program
         List<string> results = inventory.FindAll(p => p.Contains(search));
         VisaInventarie(results);
     }
+
+    static void Tjena()
+    {
+        // HEj
+    }
 }
