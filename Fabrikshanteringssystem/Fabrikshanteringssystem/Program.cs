@@ -57,17 +57,23 @@ class Program
     }
     static void VisaInventarie(List<string> products = null!)
     {
+        string title = "";
         if (products == null)
         {
             products = inventory;
+            title = "Inventarielista";
         }
-        if (products == null)
+        else
+        {
+            title = "Sökresultat";
+        }
+        if (products.Count == 0)
         {
             Console.WriteLine("Inventariet är tomt.");
         }
         else
         {
-            Console.WriteLine("\nInventarielista:");
+            Console.WriteLine($"\n{title}:");
             for (int i = 0; i < products.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {products[i]}");
