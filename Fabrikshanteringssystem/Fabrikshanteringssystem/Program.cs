@@ -39,7 +39,7 @@ class Program
         {
             products = inventory;
         }
-        if (products == null)
+        if (products.Count == 0)
         {
             Console.WriteLine("Inventariet är tomt.");
         }
