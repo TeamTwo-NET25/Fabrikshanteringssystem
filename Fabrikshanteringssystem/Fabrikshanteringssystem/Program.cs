@@ -55,12 +55,16 @@ class Program
         Console.ReadKey(true);
 
     }
-    static void VisaInventarie(List<string> products = null!)
+    static void VisaInventarie()
+    {
+        VisaInventarie(inventory, false);
+    }
+
+    static void VisaInventarie(List<string> products, bool search)
     {
         string title = "";
-        if (products == null)
+        if (!search)
         {
-            products = inventory;
             title = "Inventarielista";
         }
         else
@@ -95,7 +99,7 @@ class Program
             }
         }
         List<string> results = inventory.FindAll(p => p.ToLower().Contains(search));
-        VisaInventarie(results);
+        VisaInventarie(results, true);
         
     }
     static void TaBortProdukt()
