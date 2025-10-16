@@ -33,8 +33,24 @@ class Program
     {
         // TODO: Implementera metod för att lägga till produkt
     }
-    static void VisaInventarie()
+    static void VisaInventarie(List<string> products = null!)
     {
-        // TODO: Implementera metod för att visa inventarie
+        if (products == null)
+        {
+            products = inventory;
+        }
+        if (products == null)
+        {
+            Console.WriteLine("Inventariet är tomt.");
+        }
+        else
+        {
+            Console.WriteLine("\nInventarielista:");
+            for (int i = 0; i < products.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {products[i]}");
+            }
+        }
+
     }
 }
